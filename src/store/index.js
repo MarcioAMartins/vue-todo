@@ -19,6 +19,9 @@ export default new Vuex.Store({
           concluido: false
         })
       }
+    },
+    removeTarefa(state, id){
+      state.tarefas = state.tarefas.filter(tarefa => tarefa.id !== id)
     }
   },
   actions: {

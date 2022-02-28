@@ -14,6 +14,16 @@
           :class="{'text-decoration-line-through': tarefa.concluido}"
           >{{tarefa.titulo}}</v-list-item-title>
         </v-list-item-content>
+
+        <v-list-item-action>
+          <v-btn
+          @click.stop="handleRemoveTarefa(tarefa.id)"
+           icon>
+            <v-icon color="red darken-3">mdi-trash-can</v-icon>
+          </v-btn>
+        </v-list-item-action>
+
+
       </template>
     </v-list-item>
     <v-divider></v-divider> 
@@ -22,7 +32,12 @@
 
 <script>
 export default {
- props:['tarefa']
+ props:['tarefa'],
+ methods:{
+   handleRemoveTarefa(id){
+      this.$store.commit('removeTarefa', id)
+   }
+ }
 };
 </script>
 
