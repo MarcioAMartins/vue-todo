@@ -43,7 +43,7 @@
             icone:"mdi-trash-can",
             title: "Excluir",
             click(){
-                console.log('Excluir')
+                console.log("Eliminar")
             }           
          },
       ],

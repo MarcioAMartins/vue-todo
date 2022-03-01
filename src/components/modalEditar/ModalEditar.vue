@@ -43,9 +43,13 @@
 </template>
 
 <script>
-export default {
-
-}
+  export default {
+    data () {
+      return {
+        dialog: true,
+      }
+    },
+  }
 </script>
 
 <style>
