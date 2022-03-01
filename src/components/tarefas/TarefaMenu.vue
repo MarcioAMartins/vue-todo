@@ -3,20 +3,25 @@
     <v-menu offset-y>
         <template v-slot:activator="{ on, attrs }">
             <v-btn
-            color="primary"
-            dark
             v-bind="attrs"
             v-on="on"
+            icon
             >
-            Dropdown
+                <v-icon>mdi-dots-vertical</v-icon>
+
             </v-btn>
         </template>
         <v-list>
             <v-list-item
             v-for="(item, index) in items"
             :key="index"
+            @click="item.click()"
             >
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
+            
+                <v-icon left > {{ item.icone }} </v-icon>
+
+                <v-list-item-title>{{ item.title }}</v-list-item-title>
+            
             </v-list-item>
         </v-list>
         </v-menu>
@@ -27,10 +32,20 @@
   export default {
     data: () => ({
       items: [
-        { title: 'Click Me' },
-        { title: 'Click Me' },
-        { title: 'Click Me' },
-        { title: 'Click Me 2' },
+        { 
+            icone:"mdi-pencil",
+            title: 'Editar',
+            click(){
+                console.log("Editar")
+            }
+         },
+        { 
+            icone:"mdi-trash-can",
+            title: "Excluir",
+            click(){
+                console.log('Excluir')
+            }           
+         },
       ],
     }),
   }
