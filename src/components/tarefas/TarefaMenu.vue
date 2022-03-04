@@ -25,11 +25,16 @@
             </v-list-item>
         </v-list>
         </v-menu>
+        <ModalEditar />
     </div>
 </template>
 
 <script>
+import ModalEditar from '../Modal/ModalEditar.vue'
+
   export default {
+  components: { ModalEditar },
+
     data: () => ({
       items: [
         { 
@@ -41,7 +46,7 @@
          },
         { 
             icone:"mdi-trash-can",
-            title: "Excluir",
+            title: 'Excluir',
             click(){
                 console.log("Eliminar")
             }           
