@@ -25,7 +25,11 @@
             </v-list-item>
         </v-list>
         </v-menu>
-        <ModalEditar />
+        <ModalEditar
+        v-if="items[0].modal"
+        @fechaModal="items[0].modal = false"
+        :tarefa="tarefa"
+         />
     </div>
 </template>
 
@@ -33,15 +37,17 @@
 import ModalEditar from '../Modal/ModalEditar.vue'
 
   export default {
+      props:['tarefa'],
   components: { ModalEditar },
-
     data: () => ({
       items: [
         { 
             icone:"mdi-pencil",
             title: 'Editar',
+            modal: false,
             click(){
                 console.log("Editar")
+                this.modal = true
             }
          },
         { 
@@ -53,6 +59,7 @@ import ModalEditar from '../Modal/ModalEditar.vue'
          },
       ],
     }),
+    
   }
 </script>
 

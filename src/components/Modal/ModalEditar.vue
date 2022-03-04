@@ -13,24 +13,26 @@
         <v-card-text
         class="mt-2"
         >Informe o novo titulo.</v-card-text>
+
           <v-text-field
           class="px-3"
           label="Titulo"
           outlined
+          v-model="titulo"
           ></v-text-field>
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn
             color="red darken-1"
             text
-            @click="dialog = false"
+            @click="$emit('fechaModal')"
           >
             Cancelar
           </v-btn>
           <v-btn
             color="primary"
             text
-            @click="dialog = false"
+            @click="$store.commit('editaTarefa', { titulo, id: tarefa.id })"
           >
             Editar
           </v-btn>
@@ -42,11 +44,16 @@
 
 <script>
   export default {
+    props:['tarefa'],
     data () {
       return {
         dialog: true,
+        titulo: null
       }
     },
+    created(){
+      this.titulo = this.tarefa.titulo
+    }
   }
 </script>
 
