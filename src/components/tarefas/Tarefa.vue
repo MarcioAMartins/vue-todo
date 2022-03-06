@@ -16,16 +16,21 @@
         </v-list-item-content>
 
         <v-list-item-action>
+
           <!-- <v-btn
+          icon
           @click.stop="handleRemoveTarefa(tarefa.id)"
-           icon>
+           >
             <v-icon color="red darken-3">mdi-trash-can</v-icon>
           </v-btn> -->
-          <TarefaMenu/>
+
+          <TarefaMenu
+          :tarefa="tarefa"
+          />
+
         </v-list-item-action>
-
-
       </template>
+      
     </v-list-item>
     <v-divider></v-divider> 
   </div>

@@ -23,7 +23,7 @@ export default new Vuex.Store({
     removeTarefa(state, id){
       state.tarefas = state.tarefas.filter(tarefa => tarefa.id !== id)
     },
-    editatarefa(state, novaTarefa){
+    editaTarefa(state, novaTarefa){
       console.log(state);
       console.log(novaTarefa);
     }

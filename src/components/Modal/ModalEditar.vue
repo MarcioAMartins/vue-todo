@@ -5,7 +5,8 @@
       persistent
       max-width="290"
     >
-            <v-card>
+      
+      <v-card>
         <v-card-title class="text-h5">
           Editar
         </v-card-title>
@@ -14,25 +15,26 @@
         class="mt-2"
         >Informe o novo titulo.</v-card-text>
 
-          <v-text-field
-          class="px-3"
-          label="Titulo"
-          outlined
-          v-model="titulo"
-          ></v-text-field>
+        <v-text-field
+            class="px-3"
+            label="Titulo"
+            outlined
+            v-model="titulo"
+        ></v-text-field>
+
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn
-            color="red darken-1"
+            color="red darken-3"
             text
-            @click="$emit('fechaModal')"
+            @click="$emit('FechaModal')"
           >
             Cancelar
           </v-btn>
           <v-btn
             color="primary"
             text
-            @click="$store.commit('editaTarefa', { titulo, id: tarefa.id })"
+            @click="$emit('fechaModal')"
           >
             Editar
           </v-btn>
@@ -43,18 +45,15 @@
 </template>
 
 <script>
-  export default {
+export default {
     props:['tarefa'],
-    data () {
+     data () {
       return {
         dialog: true,
         titulo: null
       }
     },
-    created(){
-      this.titulo = this.tarefa.titulo
-    }
-  }
+}
 </script>
 
 <style>
