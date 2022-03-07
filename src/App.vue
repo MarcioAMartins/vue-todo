@@ -1,11 +1,6 @@
 <template>
   <v-app id="inspire">
-    <v-navigation-drawer
-      v-model="drawer"
-      app
-    >
-      <!--  -->
-    </v-navigation-drawer>
+
     <v-navigation-drawer 
       v-model="drawer"
       app
@@ -44,11 +39,6 @@
       </v-list>
     </v-navigation-drawer>
 
-<!--     <v-app-bar >
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-
-      <v-toolbar-title>Application</v-toolbar-title>
-    </v-app-bar> -->
     <v-app-bar
       app
       prominent
@@ -65,7 +55,7 @@
 
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-      <v-app-bar-title>Title</v-app-bar-title>
+      <v-app-bar-title >Lista de  Tarefas</v-app-bar-title>
 
       <v-spacer></v-spacer>
 

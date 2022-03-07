@@ -43,7 +43,7 @@ export default {
         { 
           icone:"mdi-pencil", 
           title: 'Editar',
-          modal: false ,
+          modal: false,
           click(){
               console.log("Editar")
               this.modal = true
@@ -52,10 +52,9 @@ export default {
         { 
           icone:"mdi-trash-can", 
           title: 'Excluir',
-          modal: false ,
+          
           click(){
               console.log("Excluir")
-              this.modal = true
           } 
         },
       ],

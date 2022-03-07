@@ -5,7 +5,6 @@
       persistent
       max-width="290"
     >
-      
       <v-card>
         <v-card-title class="text-h5">
           Editar
@@ -53,6 +52,10 @@ export default {
         titulo: null
       }
     },
+    created(){
+      this.titulo = this.tarefa.titulo
+    }
+ 
 }
 </script>
 
