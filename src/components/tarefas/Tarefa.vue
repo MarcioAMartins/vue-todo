@@ -17,13 +17,6 @@
 
         <v-list-item-action>
 
-          <!-- <v-btn
-          icon
-          @click.stop="handleRemoveTarefa(tarefa.id)"
-           >
-            <v-icon color="red darken-3">mdi-trash-can</v-icon>
-          </v-btn> -->
-
           <TarefaMenu
           :tarefa="tarefa"
           />
