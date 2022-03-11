@@ -44,6 +44,7 @@
       prominent
       color="#fcb69f"
       dark
+      
       src="https://picsum.photos/1920/1080?random"
     >
       <template v-slot:img="{ props }">

@@ -9,11 +9,16 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     tarefas: [
-      {id: 1, titulo: "Ir ao mercado", concluido: false },
-      {id: 2, titulo: "Comprar ração", concluido: false },
+      /* {id: 1, titulo: "Ir ao mercado", concluido: false },
+      {id: 2, titulo: "Comprar ração", concluido: false }, */
     ],
   },
   mutations: {
+    buscaTarefas(state){
+      db.collection('tarefas').get().then(tarefasDB => {
+        state.tarefas = tarefasDB
+      })
+    },
     adicionaTarefa(state,titulo){
 
       db.collection('tarefas').add({
@@ -21,14 +26,6 @@ export default new Vuex.Store({
         titulo,
         concluido: false
       })
-
-      /* if(titulo){
-        state.tarefas.push({
-          id: new Date().getTime(),
-          titulo,
-          concluido: false
-        })
-      } */
     },
     removeTarefa(state, id){
       state.tarefas = state.tarefas.filter(tarefa => tarefa.id !== id)
@@ -41,6 +38,10 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    async adicionaTarefa({commit}, titulo){
+      await commit('adicionaTarefa', titulo)
+      await commit('buscaTarefas')
+    }
   },
   
   modules: {
