@@ -33,7 +33,7 @@
           <v-btn
             color="primary"
             text
-            @click="$emit('fechaModal')"
+            @click="handleEditar()"
           >
             Editar
           </v-btn>
@@ -54,6 +54,16 @@ export default {
     },
     created(){
       this.titulo = this.tarefa.titulo
+    },
+    methods:{
+      handleEditar(){
+        let novaTarefa = {
+          titulo : this.titulo,
+          id: this.tarefa.id
+        }
+        this.$store.commit('editaTarefa', novaTarefa);
+        this.$emit('FechaModal');
+      }
     }
  
 }

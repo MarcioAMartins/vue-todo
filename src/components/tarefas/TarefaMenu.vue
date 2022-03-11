@@ -45,7 +45,7 @@ export default {
           title: 'Editar',
           modal: false,
           click(){
-              console.log("Editar")
+              //console.log("Editar")//
               this.modal = true
           } 
         },
