@@ -2,7 +2,7 @@
   <div>
     <v-col 
      cols="12"
-     sm="6">
+     >
       <v-text-field
         v-model="campoInput"
         label="Insira uma tarefa"

@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+import Localbase from 'localbase'
+let db = new Localbase('db')
+
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -12,13 +15,20 @@ export default new Vuex.Store({
   },
   mutations: {
     adicionaTarefa(state,titulo){
-      if(titulo){
+
+      db.collection('tarefas').add({
+        id: new Date().getTime(),
+        titulo,
+        concluido: false
+      })
+
+      /* if(titulo){
         state.tarefas.push({
           id: new Date().getTime(),
           titulo,
           concluido: false
         })
-      }
+      } */
     },
     removeTarefa(state, id){
       state.tarefas = state.tarefas.filter(tarefa => tarefa.id !== id)
