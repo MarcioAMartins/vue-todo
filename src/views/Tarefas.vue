@@ -1,8 +1,6 @@
 <template>
   <div>
-    <v-col 
-     cols="12"
-     >
+    <v-col cols="12">
       <v-text-field
         v-model="campoInput"
         label="Insira uma tarefa"
@@ -11,42 +9,33 @@
         @keyup.enter="handleAddTarefa"
       ></v-text-field>
     </v-col>
-    <v-list flat subheader>
-      <v-list-item-group 
-      multiple active-class="">
-        <div 
-        v-for="(tarefa, index) in $store.state.tarefas" 
-        :key="index">
-          <Tarefa :tarefa="tarefa" />
-        </div>
-      </v-list-item-group>
-    </v-list>
+
+    <ListadeTarefas />
   </div>
 </template>
 
 <script>
-import Tarefa from "../components/tarefas/Tarefa.vue";
+import ListadeTarefas from '../components/tarefas/ListadeTarefas.vue';
 export default {
   name: "Home",
 
   components: {
-    Tarefa,
+    ListadeTarefas,
   },
   data() {
     return {
-      campoInput: null ,
-      
+      campoInput: null,
     };
   },
-  created(){
-    this.$store.commit('buscaTarefas');
+  created() {
+    this.$store.commit("buscaTarefas");
   },
-  methods:{
-    handleAddTarefa(){
-        //this.$store.commit('adicionaTarefa',this.campoInput)
-        this.$store.dispatch('adicionaTarefa',this.campoInput)
-        this.campoInput = null;
-      }
-  }
+  methods: {
+    handleAddTarefa() {
+      //this.$store.commit('adicionaTarefa',this.campoInput)
+      this.$store.dispatch("adicionaTarefa", this.campoInput);
+      this.campoInput = null;
+    },
+  },
 };
 </script>
