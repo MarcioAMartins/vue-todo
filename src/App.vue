@@ -37,6 +37,7 @@
     </v-navigation-drawer>
 
     <v-app-bar
+      
       app
       prominent
       height="185"
@@ -53,14 +54,18 @@
 
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-      <!-- <v-app-bar-title class="title">Lista de Tarefas </v-app-bar-title> -->
+      
       <center>
-        <v-toolbar-title class="mt-16">
-          <InputTarefa />
-        </v-toolbar-title>
+        <v-app-bar-title
+        class="mt-16"
+        >
+          <InputTarefa
+          
+          />
+        </v-app-bar-title>
       </center>
     </v-app-bar>
-
+    
     <v-main>
       <router-view />
     </v-main>

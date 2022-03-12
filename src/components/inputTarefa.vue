@@ -1,6 +1,8 @@
 <template>
   <div>
-    <v-col cols="12">
+    <v-col cols="12"
+    justify
+    >
       <v-text-field
         v-model="campoInput"
         label="Qual é a sua tarefa?"
