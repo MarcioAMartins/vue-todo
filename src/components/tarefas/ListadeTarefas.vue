@@ -6,13 +6,11 @@
     >
       <template v-slot:item="{ item, reorder }">
         <drag :key="item.id" :data="item">
-         
           <Tarefa
           style="background-color: white"
           :style=" reorder ? { borderLeft: '2px solid #1976D2', marginLeft: '-2px' } : {}  " 
           :tarefa="item"
            />
-          <v-divider />
         </drag>
       </template>
     </drop-list>
