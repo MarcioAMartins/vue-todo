@@ -19,6 +19,7 @@
             label="Titulo"
             outlined
             v-model="titulo"
+            @keydown.enter= 'handleEditar()'
         ></v-text-field>
 
         <v-card-actions>
@@ -32,7 +33,7 @@
           </v-btn>
           <v-btn
             color="primary"
-            text
+            text            
             @click="handleEditar()"
           >
             Editar
@@ -61,7 +62,7 @@ export default {
           titulo : this.titulo,
           id: this.tarefa.id
         }
-        this.$store.commit('editaTarefa', novaTarefa);
+        this.$store.dispatch('editaTarefa', novaTarefa);
         this.$emit('FechaModal');
       }
     }

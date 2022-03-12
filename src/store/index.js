@@ -27,20 +27,21 @@ export default new Vuex.Store({
         concluido: false
       })
     },
-    removeTarefa(state, id){
-      state.tarefas = state.tarefas.filter(tarefa => tarefa.id !== id)
-    },
-    editaTarefa(state, novaTarefa){
-      let tarefa = state.tarefas.filter(tarefa => tarefa.id == novaTarefa.id)[0]
-      tarefa.titulo = novaTarefa.titulo;
-      //console.log(state);
-      //console.log(tarefa);
-    }
   },
   actions: {
     async adicionaTarefa({commit}, titulo){
       await commit('adicionaTarefa', titulo)
       await commit('buscaTarefas')
+    },
+     editaTarefa({commit}, novaTarefa){
+      db.collection('tarefas').doc({ id: novaTarefa.id }).update({
+        titulo: novaTarefa.titulo
+      }).then(()=>{
+        commit('buscaTarefas')
+      })
+    },
+    removeTarefa({commit}, id){
+      db.collection('tarefas').doc({ id }).delete().then(()=>{ commit('buscaTarefas')})
     }
   },
   
